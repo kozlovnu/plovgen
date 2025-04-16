@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Fallout: Пловген — Интерактивный Квест</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e1e;
+      color: #eee;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #f9d923;
+      text-align: center;
+    }
+    .scene {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .choice {
+      margin: 15px 0;
+      padding: 10px 15px;
+      background: #333;
+      border: 1px solid #555;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .choice:hover {
+      background: #555;
+    }
+    img {
+      width: 100%;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Fallout: Пловген</h1>
+<h2>Интерактивный квест о Вкусе Единства</h2>
+
+<div id="scene0" class="scene active">
+  <p><em>Год 2278. После Вкусовой Войны человечество разделилось на кланы. Сушисты, бургермены и веганы разорвали остатки единой кухни.</em></p>
+  <p><em>Но в одном из Убежищ сохранился рецепт. Легендарный Плов Единства.</em></p>
+  <p><em>Ты — Пловген, потомственный повар из Убежища №88.</em></p>
+  <p><em>Твоя миссия: пройти через пустоши, найти утерянные ингредиенты и воссоздать вкус, способный объединить всё человечество…</em></p>
+  <img src="IMG_7344.png" alt="Интро">
+  <div class="choice" onclick="goTo('scene1')">Начать</div>
+</div>
+
+<div id="scene1" class="scene">
+  <p>Ты выходишь из бункера Убежища №88. Перед тобой — разрушенные улицы Ташкента. Впереди туннель метро и дымящаяся чайхана.</p>
+  <img src="IMG_7346.png" alt="Сцена 1">
+  <div class="choice" onclick="goTo('scene2')">Идти в туннель</div>
+  <div class="choice" onclick="goTo('scene3')">Зайти в чайхану</div>
+</div>
+
+<div id="scene2" class="scene">
+  <p>Ты спускаешься в туннель. Там темно и сыро. Ты слышишь шаги и видишь блеск крышек. Это банда "Чили-Зирвак"!</p>
+  <img src="IMG_7347.png" alt="Сцена 2">
+  <div class="choice" onclick="goTo('scene4')">Сразиться с ними ложкой</div>
+  <div class="choice" onclick="goTo('scene5')">Спрятаться в вентиляции</div>
+</div>
+
+<div id="scene3" class="scene">
+  <p>Ты входишь в чайхану и встречаешь Зирыча. Он угощает шорпо и предлагает карту в обмен на специи.</p>
+  <img src="IMG_7348.png" alt="Сцена 3">
+  <div class="choice" onclick="goTo('scene4')">Принять сделку и отправиться в Самарканд</div>
+</div>
+
+<div id="scene4" class="scene">
+  <p>Ты покидаешь Ташкент и добираешься до Регистана. Здесь живёт мутант Зирвакус, страж специи. Ты готов к испытанию вкуса.</p>
+  <img src="IMG_7349.png" alt="Сцена 4">
+  <div class="choice" onclick="goTo('scene6')">Войти в купол и сразиться</div>
+</div>
+
+<div id="scene5" class="scene">
+  <p>Ты прячешься, но один из Зирваков замечает тебя. Начинается погоня. Ты вырываешься наружу и мчишься к Ургуту.</p>
+  <img src="IMG_7345.png" alt="Сцена 5">
+  <div class="choice" onclick="goTo('scene6')">Продолжить путь</div>
+</div>
+
+<div id="scene6" class="scene">
+  <p>Ты проходишь через Ургут, Бухару и Хиву, собирая ингредиенты. В Навои тебя ждёт финальный казан.</p>
+  <img src="IMG_7350.png" alt="Сцена 6">
+  <div class="choice" onclick="goTo('scene7')">Приготовить Плов Единства</div>
+</div>
+
+<div id="scene7" class="scene">
+  <p>Ты бросаешь специи в казан. Появляется свет. Кланы объединяются. Пловген спасает Пустошь…</p>
+  <img src="IMG_7351.png" alt="Финал">
+  <h2>Конец</h2>
+  <div class="choice" onclick="goTo('scene0')">Пройти ещё раз</div>
+</div>
+
+<script>
+  function goTo(id) {
+    document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
